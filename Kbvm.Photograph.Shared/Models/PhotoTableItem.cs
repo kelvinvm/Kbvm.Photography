@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kbvm.Photography.Functions.Models
+namespace Kbvm.Photograph.Shared.Models
 {
-	internal class PhotoTableItem : ITableEntity
+	public class PhotoTableItem : ITableEntity
 	{
-		public PhotoTableItem(Photo photo)
+		public PhotoTableItem(PhotoDto photo)
 		{
 			PartitionKey = photo.CollectionName;
 			RowKey = photo.FileName;

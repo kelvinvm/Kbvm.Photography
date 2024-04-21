@@ -6,7 +6,6 @@ using Microsoft.Extensions.Logging;
 using System.Drawing;
 using System.Text.Json;
 using Azure.Data.Tables;
-using Kbvm.Photography.Functions.Models;
 
 namespace Kbvm.Photography.Functions
 {
@@ -22,7 +21,7 @@ namespace Kbvm.Photography.Functions
 		}
 
         [Function("AddPhoto")]
-        public async Task<bool> AddPhoto([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req, Photo photoInfo)
+        public async Task<bool> AddPhoto([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req, PhotoDto photoInfo)
         {
             var tableServiceClient = new TableServiceClient(new Uri(_photoTableShareAccessSignature));
             var tableClient = tableServiceClient.GetTableClient("Photos");
