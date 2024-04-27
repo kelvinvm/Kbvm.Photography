@@ -1,0 +1,43 @@
+﻿@page "/photoinfo"
+@rendermode InteractiveServer
+
+<h3>Photo Info</h3>
+
+<ul>
+	@foreach(var photo in _photos)
+	{
+		<li>@photo.Caption</li>
+	}
+
+	<EditForm Model="_newPhoto" OnValidSubmit="Submit" FormName="AddPhoto">
+
+		<div style="padding-bottom: 20px;">
+			<label>
+				Collection:
+				<InputSelect @bind-Value="_newPhoto!.CollectionName">
+					<option value="">Select Collection</option>
+					@foreach (var collection in _collections)
+					{
+						<option value="@collection">@collection</option>
+					}
+				</InputSelect>
+			</label>
+		</div>
+
+		<div style="padding-bottom: 20px;">
+			<label>
+				Caption:
+				<InputText @bind-Value="_newPhoto!.Caption" />
+			</label>
+		</div>
+
+		<div style="padding-bottom: 20px;">
+			<button type="submit">Submit</button>
+		</div>
+
+	</EditForm>
+	
+</ul>
+
+// https://learn.microsoft.com/en-us/training/modules/build-blazor-todo-list/3-exercise-data-binding
+// https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/input-components?view=aspnetcore-8.0

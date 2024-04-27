@@ -7,11 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Kbvm.Photography.Client\Kbvm.Photography.Client.csproj" />
+    <ProjectReference Include="..\Kbvm.Photograph.Shared\Kbvm.Photograph.Shared.csproj" />
   </ItemGroup>
 
 </Project>
