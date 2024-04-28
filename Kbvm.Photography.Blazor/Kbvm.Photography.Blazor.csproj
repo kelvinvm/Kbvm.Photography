@@ -4,7 +4,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>112fbeed-26ed-4488-bef1-61075c4c93d0</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazor.Bootstrap" Version="2.2.1" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Kbvm.Photograph.Shared\Kbvm.Photograph.Shared.csproj" />

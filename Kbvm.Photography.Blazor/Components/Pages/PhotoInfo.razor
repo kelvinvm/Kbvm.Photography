@@ -1,6 +1,7 @@
 ﻿@page "/photoinfo"
 @rendermode InteractiveServer
 
+
 <h3>Photo Info</h3>
 
 <ul>
@@ -32,12 +33,30 @@
 		</div>
 
 		<div style="padding-bottom: 20px;">
+			<label>
+				Image: 
+				<InputFile OnChange="LoadPhotoFile" />
+			</label>
+		</div>
+
+		<div style="padding-bottom: 20px;">
+			<label>
+				Thumbnail:
+				<InputFile OnChange="LoadThumbnailFile" />
+			</label>
+		</div>
+
+		<div style="padding-bottom: 20px;">
 			<button type="submit">Submit</button>
+		</div>
+
+		<div style="padding-bottom: 20px;">
+			<button @onclick="ResetForm">Reset</button>
 		</div>
 
 	</EditForm>
 	
 </ul>
 
-// https://learn.microsoft.com/en-us/training/modules/build-blazor-todo-list/3-exercise-data-binding
-// https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/input-components?view=aspnetcore-8.0
+@* https://learn.microsoft.com/en-us/training/modules/build-blazor-todo-list/3-exercise-data-binding
+https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/input-components?view=aspnetcore-8.0 *@

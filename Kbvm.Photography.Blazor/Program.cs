@@ -1,10 +1,25 @@
+using Images.ExifData;
+using Kbvm.Photograph.Shared.Models;
+using Kbvm.Photograph.Shared.Services;
 using Kbvm.Photography.Blazor.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddBlazorBootstrap();
+
 // Add services to the container.
 builder.Services.AddRazorComponents()
 	.AddInteractiveServerComponents();
+
+builder.Services
+	.AddScoped<IAzureBlobHandler, AzureBlobHandler>()
+	.AddScoped<IAzureTableStorageHandler, AzureTableStorageHandler>()
+	.AddScoped<IExifReader, ExifReader>()
+	.AddSingleton<IAccessKeys>(new AccessKeys()
+	{
+		Blob = builder.Configuration["PhotoBlobSharedAccessKey"] ?? string.Empty,
+		Table = builder.Configuration["PhotoTableSharedAccessKey"] ?? string.Empty
+	});
 
 var app = builder.Build();
 
