@@ -24,7 +24,7 @@ namespace Images.ExifData
 				CameraModel: metaDataReader.CameraModel(),
 				Exposure: metaDataReader.Exposure(),
 				Iso: metaDataReader.Iso(),
-				ShotDate: metaDataReader.ShotDate(),
+				ShotDate: metaDataReader.ShotDate() == DateTime.MinValue ? DateTime.Now : metaDataReader.ShotDate(),
 				ShutterSpeed: metaDataReader.ShutterSpeed(),
 				Aperture: metaDataReader.Aperture(),
 				ExposureBias: metaDataReader.ExposureBias()

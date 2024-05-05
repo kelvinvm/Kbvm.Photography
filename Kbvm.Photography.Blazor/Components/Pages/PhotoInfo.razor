@@ -10,51 +10,75 @@
 		<li>@photo.Caption</li>
 	}
 
-	<EditForm Model="_newPhoto" OnValidSubmit="Submit" FormName="AddPhoto">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<EditForm Model="_newPhoto" OnValidSubmit="Submit" FormName="AddPhoto">
+					<div class="row pb-2">
+						<div class="col-md-2">
+							<label>
+								Collection:
+							</label>
+						</div>
+						<div class="col-md-10">
+							<InputSelect @bind-Value="_newPhoto!.CollectionName" >
+								<option value="" selected="selected" >-- Select Collection--</option>
+								@foreach (var collection in _collections)
+								{
+									<option value="@collection">@collection</option>
+								}
+							</InputSelect>
+						</div>
+					</div>
 
-		<div style="padding-bottom: 20px;">
-			<label>
-				Collection:
-				<InputSelect @bind-Value="_newPhoto!.CollectionName">
-					<option value="">Select Collection</option>
-					@foreach (var collection in _collections)
-					{
-						<option value="@collection">@collection</option>
-					}
-				</InputSelect>
-			</label>
+					<div class="row pb-2">
+						<div class="col-md-2">
+							<label>
+								Caption:
+							</label>
+						</div>
+						<div class="col-md-10">
+							<InputText @bind-Value="_newPhoto!.Caption" />
+						</div>
+					</div>
+
+					<div class="row pb-2">
+						<div class="col-md-2">
+							<label>
+								Image:
+							</label>
+						</div>
+						<div class="col-md-10">
+							<InputFile OnChange="LoadPhotoFile" />
+						</div>
+					</div>
+
+					<div class="row pb-2">
+						<div class="col-md-2">
+							<label>
+								Thumbnail:
+							</label>
+						</div>
+						<div class="col-md-10">
+							<InputFile OnChange="LoadThumbnailFile" />
+						</div>
+					</div>
+
+					<div class="row pt-3">
+						<div class="col-md-2">
+						</div>
+						<div class="col-md-10">
+							<button type="submit">Submit</button>
+							<button @onclick="ResetForm">Reset</button>
+						</div>
+					</div>
+
+
+				</EditForm>
+
+			</div>
 		</div>
-
-		<div style="padding-bottom: 20px;">
-			<label>
-				Caption:
-				<InputText @bind-Value="_newPhoto!.Caption" />
-			</label>
-		</div>
-
-		<div style="padding-bottom: 20px;">
-			<label>
-				Image: 
-				<InputFile OnChange="LoadPhotoFile" />
-			</label>
-		</div>
-
-		<div style="padding-bottom: 20px;">
-			<label>
-				Thumbnail:
-				<InputFile OnChange="LoadThumbnailFile" />
-			</label>
-		</div>
-
-		<div style="padding-bottom: 20px;">
-			<button type="submit">Submit</button>
-		</div>
-
-		<div style="padding-bottom: 20px;">
-			<button @onclick="ResetForm">Reset</button>
-		</div>
-
-	</EditForm>
+	</div>
 	
 </ul>
 
